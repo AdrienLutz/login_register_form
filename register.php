@@ -76,7 +76,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             echo ('is-invalid');
         } else if ($_SERVER["REQUEST_METHOD"] == 'POST') {
             echo ('is-valid');
-        } ?>" type="text" value="<?php echo(isset($_POST['email'])?$_POST["email"]:"")?>" name="email" placeholder="email">
+        } ?>" type="text" value="<?php 
+                // on garde le contenu en valeur pour pas tout retaper à chaque rafraichissement
+                echo(isset($_POST['email'])?$_POST["email"]:"")?>" name="email" placeholder="email">
                 <?php
                 // afficher un message APRES l'input
                 if (array_key_exists("email", $errors)) {
